@@ -2,94 +2,42 @@
 	Game
 */
 var game = {
-	//Data
-	/*date : new Date(),
-	year : date.getFullYear(),
-	month : date.getMonth(),
-	day : date.getDate(),
-	weekday : date.getDay(),
-	time : date.getHours() + ':' + this.date.getMinutes(),
-	timestamp : date.getTime(),*/
-	
-	//States
-	weather_states: ['sunny','rainy','cloudy'],
-	season_states: ['spring','summer','autumn','winter'],
-	
-	/*weather : weather_states[0],
-	season : season_states[0],*/
-	
-	//Date combined with other classes
-	//user : new player(),
-	farms : [], //all farms in game
-	persons : [], //all players in game: (storekeeper,) other farmers, farm workers and guests
-	horses : [], //all horses in game: on farms and horse market
-	horseMarket : [], //just market horses
-	
-	buildings : [], //all buldings that can be build
-	items : [], //all items that can be bought
-	
-	//Functions
-	initDatabase: function(){
+	//init
+	initialize: function() {
+		this.setDate();
+		this.setWeather();
+		this.initDatabase();
+	},
+	//Date
+	setDate: function(){
+		this.date = new Date();
+		this.year = this.date.getFullYear();
+		this.month = this.date.getMonth();
+		this.day = this.date.getDate();
+		this.weekday = this.date.getDay();
+		this.time = this.date.getHours() + ':' + this.date.getMinutes();
+		this.timestamp = this.date.getTime();
+	},
+	//Weather
+	setWeather: function(){
+		//States
+		this.weather_states = ['sunny','rainy','cloudy'];
+		this.season_states = ['spring','summer','autumn','winter'];
 		
-	}
-};
-
-var navigation = {
-	profile: {
-		type: "grid",
-		title: "Profil",
-		items: [
-			{
-				name: "Daten"
-			},
-			{
-				name: "Inventar"
-			},
-			{
-				name: "Ausbildung"
-			}
-		]
+		this.weather = this.weather_states[0];
+		this.season = this.season_states[0];
 	},
-	colors: {
-		name: "Colors",
-		description: "Fresh colors from the magic rainbow.",
-		items: [
-			{
-				name: "Blue"
-			},
-			{
-				name: "Green"
-			},
-			{
-				name: "Orange"
-			},
-			{
-				name: "Purple"
-			},
-			{
-				name: "Red"
-			},
-			{
-				name: "Yellow"
-			},
-			{
-				name: "Violet"
-			}
-		]
-	},
-	vehicles: {
-		name: "Vehicles",
-		description: "Everything from cars to planes.",
-		items: [
-			{
-				name: "Cars"
-			},
-			{
-				name: "Planes"
-			},
-			{
-				name: "Construction"
-			}
-		]
+	//Data combined with other classes
+	//init all Instances
+	initDatabase: function(){
+		this.user = new player();
+		
+		this.farms = []; //all farms in game
+		this.persons = []; //all players in game: (storekeeper,) other farmers, farm workers and guests
+		this.horses = []; //all horses in game: on farms and horse market
+		this.horseMarket = []; //just market horses
+		
+		this.buildings = []; //all buldings that can be build
+		this.items = []; //all items that can be bought
 	}
 };

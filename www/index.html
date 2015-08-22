@@ -34,7 +34,11 @@
     <body>
         <div id="app" data-role="page">
         	<div id="menuPanel" data-role="panel" data-display="overlay">
-            	<p>Spiel speichern</p>
+				<ul data-role="listview" data-inset="true">
+					<li><a href="#app" data-rel="close">Spiel fortsetzen</a></li>
+					<li><a href="#">Spiel speichern</a></li>
+					<!--<li><a href="#category-items?category=vehicles">Vehicles</a></li>-->
+				</ul>
             </div>
         	<div id="statusbar" data-role="header" data-position="fixed" data-theme="b">
                 <div id="statusnav" data-role="navbar" data-iconpos="left">
@@ -46,7 +50,6 @@
                         <li><a href="#" data-icon="back">Zurück</a></li>
                     </ul>
                 </div>
-                
             </div>
             <div id="main" data-role="main">
             	<div id="gameheader" data-role="header">
@@ -54,30 +57,19 @@
                 </div>
             	<div id="gameboard" data-role="content">
             		<p>Ich bin auf dem Land / Hof / Auswahl</p>
-                    <h2>Select a Category Below:</h2>
-                    <ul data-role="listview" data-inset="true">
-                        <li><a href="#category-items?category=animals">Animals</a></li>
-                        <li><a href="#category-items?category=colors">Colors</a></li>
-                        <li><a href="#category-items?category=vehicles">Vehicles</a></li>
-                    </ul>
                 </div>
             </div>
             <div id="footer" data-role="footer" data-position="fixed">
             	<!-- <h4>Page footer</h4> -->
                 <div id="subnav" data-role="navbar" data-iconpos="left">
                     <ul>
-                        <li><a href="#" data-icon="user">Profil</a></li>
-                        <li><a href="#" data-icon="bullets">Büro</a></li>
-                        <li><a href="#" data-icon="heart">Pferde</a></li>
-                        <li><a href="#" data-icon="gear">Bauen</a></li>
+                        <li><a href="#app?item=profile" data-icon="user">Profil</a></li>
+                        <li><a href="#app?item=office" data-icon="bullets">Büro</a></li>
+                        <li><a href="#app?item=horses" data-icon="heart">Pferde</a></li>
+                        <li><a href="#app?item=build" data-icon="gear">Bauen</a></li>
                     </ul>
                 </div>
             </div>
-        </div>
-        
-        <div style="min-height: 674px;" class="ui-page ui-body-c" tabindex="0" data-url="category-items" id="category-items" data-role="page">
-          <div role="banner" class="ui-header ui-bar-a" data-role="header"><h1 aria-level="1" role="heading" class="ui-title">Animals</h1></div>
-          <div role="main" class="ui-content" data-role="content"><p>All your favorites from aardvarks to zebras.</p><ul class="ui-listview ui-listview-inset ui-corner-all ui-shadow" data-role="listview" data-inset="true"><li class="ui-li ui-li-static ui-btn-up-c ui-corner-top">Pets</li><li class="ui-li ui-li-static ui-btn-up-c">Farm Animals</li><li class="ui-li ui-li-static ui-btn-up-c ui-corner-bottom ui-li-last">Wild Animals</li></ul></div>
         </div>
         
         <script type="text/javascript" src="cordova.js"></script>
@@ -85,8 +77,9 @@
         <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
         <script type="text/javascript" src="js/jquery.mobile-1.4.4.js"></script>
         
+		<script type="text/javascript" src="js/database.js"></script>
         <script type="text/javascript" src="js/game.js"></script>
-        <script type="text/javascript" src="js/database.js"></script>
+		<script type="text/javascript" src="js/navigation.js"></script>
         
         <script type="text/javascript">
             app.initialize();
