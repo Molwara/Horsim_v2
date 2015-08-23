@@ -20,6 +20,7 @@ var app = {
     // Application Constructor
     initialize: function() {
         //console.log('initialize');
+		
 		this.bindEvents();
     },
     // Bind Event Listeners
@@ -27,14 +28,12 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
 		//console.log('bindEvents');
+		
         document.addEventListener('deviceready', this.onDeviceReady, false);
 		
 		//for browser test
 		$(document).ready(this.onDocumentReady);
 		$(window).load(this.onWindowLoaded);
-		
-		// Listen for any attempts to call changePage().
-		$(document).bind( "pagebeforechange", this.onPageBeforeChange);
     },
     // deviceready Event Handler
     onDeviceReady: function() {
@@ -44,6 +43,8 @@ var app = {
 	onDocumentReady: function() {
 		//console.log('onDocumentReady');
 		
+		app.setNavigation();
+		
 		app.manipulateDom();
     },
 	onWindowLoaded: function() {
@@ -51,26 +52,15 @@ var app = {
 		
 		//all elements (like images) loaded
     },
-	// DOM Elements are ready to manipulate by javascript and jQuery
-	manipulateDom: function(){
-		console.log('manipulateDom');
+	// set eventlisteners on navigation
+	setNavigation: function(){
+		console.log('setNavigation');
 		
-		app.setContentHeight();
-	},
-	// set content to full window height
-	setContentHeight: function(){
-		console.log('setContentHeight');
+		// Listen for any attempts to call changePage().
+		$(document).bind('pagebeforechange', this.onPageBeforeChange);
 		
-		var iWindowHeight = window.innerHeight;
-		var iHeaderHeight = $('#statusbar').height();
-		var iFooterHeight = $('#footer').height();
-		
-		// header and footer + Border 1px subtract from window height
-		var iContentHeight = iWindowHeight-iHeaderHeight-2-iFooterHeight-2;
-		
-		$('#main').css('height',iContentHeight);
-		
-		//console.log('iContentHeight ' + iContentHeight);
+		// back button navigation
+		$('#backButton').bind('click', this.onBackButtonClick);
 	},
 	// make things before normal pageload
 	onPageBeforeChange: function( e, data ) {
@@ -119,6 +109,32 @@ var app = {
 			
 			oContent.find( ":jqmData(role=listview)" ).listview();
 		}
+	},
+	// back button
+	onBackButtonClick: function(e){
+		console.log('onBackButtonClick');
+		
+		
+	},
+	// DOM Elements are ready to manipulate by javascript and jQuery
+	manipulateDom: function(){
+		console.log('manipulateDom');
+		
+		app.setContentHeight();
+	},
+	// set content to full window height
+	setContentHeight: function(){
+		console.log('setContentHeight');
+		
+		var iWindowHeight = window.innerHeight;
+		var iHeaderHeight = $('#statusbar').height();
+		var iFooterHeight = $('#footer').height();
+		
+		// header and footer + Border 1px subtract from window height
+		var iContentHeight = iWindowHeight-iHeaderHeight-2-iFooterHeight-2;
+		
+		$('#main').css('height',iContentHeight);
+		
+		//console.log('iContentHeight ' + iContentHeight);
 	}
-	
 };
