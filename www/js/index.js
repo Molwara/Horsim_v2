@@ -56,6 +56,8 @@ var app = {
 	setNavigation: function(){
 		console.log('setNavigation');
 		
+		navigation.active = navigation.village;
+		
 		// Listen for any attempts to call changePage().
 		$(document).bind('pagebeforechange', this.onPageBeforeChange);
 		
@@ -114,7 +116,15 @@ var app = {
 	onBackButtonClick: function(e){
 		console.log('onBackButtonClick');
 		
-		
+		if(navigation.active.key == "village"){
+			
+		}
+		else if(navigation.active.key == "farm"){
+			
+		}
+		else{
+			
+		}
 	},
 	// DOM Elements are ready to manipulate by javascript and jQuery
 	manipulateDom: function(){

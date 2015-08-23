@@ -2,9 +2,47 @@
 	Navigation
 */
 var navigation = {
-	active: {
-		
-	}
+	active: {},
+	farm: {
+		key: "farm",
+		type: "canvas",
+		title: "Hofname",
+		items: [
+			{
+				name: "Profil"
+			},
+			{
+				name: "Büro"
+			},
+			{
+				name: "Pferde"
+			},
+			{
+				name: "Bauen"
+			}
+		],
+		content: {}
+	},
+	village: {
+		key: "village",
+		type: "canvas",
+		title: "Dorfname",
+		items: [
+			{
+				name: "Profil"
+			},
+			{
+				name: "Laden"
+			},
+			{
+				name: "Behandlung"
+			},
+			{
+				name: "Turnier"
+			}
+		],
+		content: {}
+	},
 	profile: {
 		key: "profile",
 		type: "detail",
@@ -72,10 +110,10 @@ var navigation = {
 		items: [], //game.items
 		content: {}
 	},
-	vetfarrier: {
-		key: "vetfarrier",
+	care: {
+		key: "care",
 		type: "grid",
-		title: "Arzt&Schmied",
+		title: "Behandlung",
 		items: [
 			{
 				name: "Apotheke"
